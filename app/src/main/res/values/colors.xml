@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="dim_foreground_holo_light">#323232</color>
+    <color name="file_name_text_corlor">#ff000000</color>
+</resources>

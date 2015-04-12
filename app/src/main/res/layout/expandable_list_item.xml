@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rtview"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:focusable="false"
+        android:layout_height="@dimen/file_list_height">
+
+        <Button
+            android:id="@+id/expandable_toggle_button"
+            android:text="More"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_alignParentRight="true"
+             android:textSize="30dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/file_create_time_margin_left"
+            android:gravity="center_vertical"
+            android:focusable="false"
+            android:orientation="vertical">
+
+            <!-- android:paddingBottom="@dimen/file_create_time_padding_buttom" -->
+
+            <TextView
+                android:id="@+id/file_create_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#38445c"
+                android:focusable="false"
+                android:text="ddd"
+                android:textSize="@dimen/file_create_time_text_size" />
+
+            <TextView
+                android:id="@+id/file_create_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/file_create_date_margin_top"
+                android:focusable="false"
+                android:textColor="#a6aab3"
+                android:text="wwww"
+                android:textSize="@dimen/file_create_date_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/file_create_time_margin_left"
+            android:focusable="false"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/playing_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:layout_marginRight="@dimen/playing_iv_margin_right" />
+
+            <TextView
+                android:id="@+id/duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hhaa"
+                android:textColor="#a6aab3"
+                android:textSize="@dimen/duration_text_size" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/expandable"
+        android:layout_width="fill_parent"
+        android:focusable="false"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/list_divider_holo_light"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/re_seek"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/expend_list_height"
+            android:layout_marginLeft="@dimen/seekbar_margin_left"
+            android:layout_marginTop="@dimen/seekbar_margin_top"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/pause_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/play_bt_margin_right"
+                android:background="@drawable/pause_selector" />
+
+            <SeekBar
+                android:id="@+id/play_progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/seekbar_margin_right"
+                android:layout_toLeftOf="@id/pause_bt"
+                android:progress="0" />
+
+            <LinearLayout
+                android:id="@+id/duration_time_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/play_progress_bar"
+                android:layout_marginLeft="@dimen/current_time_left"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/current_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/time_zero"
+                    android:textSize="@dimen/progress_time_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/line" />
+
+                <TextView
+                    android:id="@+id/tv_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/time_zero"
+                    android:textColor="#a6aab3"
+                    android:textSize="@dimen/duration_text_size" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/expand_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/play_progress_bar"
+                android:layout_below="@id/play_progress_bar"
+                android:layout_marginRight="@dimen/expanddate_margin_right"
+                android:orientation="horizontal"
+                android:textColor="#a6aab3"
+                android:textSize="@dimen/duration_text_size" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+      Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name" >"录音机"</string>
+    <string name="record_your_message">"录下您的留言"</string>
+    <string name="message_recorded" >"信息已录制"</string>
+    <string name="review_message">"查看信息"</string>
+    <string name="recording" >"录音"</string>
+    <string name="recording_stopped" >"录音停止"</string>
+    <string name="storage_is_full" >"存储空间已满"</string>
+    <string name="max_length_reached" >"已达到长度上限"</string>
+    <string name="min_available" >"还剩 <xliff:g id="MINUTES">%d</xliff:g> 分钟"</string>
+    <string name="sec_available" >"还剩 <xliff:g id="SECONDS">%d</xliff:g> 秒"</string>
+    <string name="accept" >"完成"</string>
+    <string name="discard">"放弃"</string>
+    <string name="button_ok">"确定"</string>
+    <!-- no translation found for audio_db_title_format (7912182366970749312) -->
+    <skip />
+
+    <string name="audio_db_artist_name" >"您的录音"</string>
+    <string name="audio_db_album_name">"录音"</string>
+    <string name="audio_db_playlist_name" >"我的录音"</string>
+    <string name="error_app_internal">"内部应用程序错误"</string>
+    <string name="error_mediadb_new_record" >"无法保存录制的音频"</string>
+    <string name="error_app_recorder_occupied">有其他应用程序正在使用录音机</string>
+    <string name="error_app_failed_title">录音失败</string>
+    <string name="unknown_artist_name" >"未知艺术家"</string>
+
+    <string name="time_zero">00:00</string>
+    <string name="line">" - "</string>
+
+    <!-- Add by yanqiang.hu@archermin.com for tips -->
+    <string name="tell_save_record_success">保存成功</string>
+    <string name="save_record">保存</string>
+    <!-- Add by yanqiang.hu@archermin.com end -->
+    <string name="spaceIsLow_content" >"SD 卡空间已快用完。请停止录音或删除 SD 卡的部分内容。"</string>
+    <string name="cancel">取消</string>
+    <string name="rename_record_file">重命名录音文件</string>
+    <string name="file_already_exists">文件已存在</string>
+    <string name="select_recording_format">选择录音品质</string>
+    <string name="recording_format_high">高</string>
+    <string name="recording_format_mid">中</string>
+    <string name="recording_format_low">低</string>
+    <string name="three_mins_avail_total">"共可录3分钟"</string>
+    <string name="recorder_can_not_be_used">录音机目前无法使用。</string>
+    <string name="alert_delete_multiple">将会删除这些文件</string>
+    <string name="alert_delete_single">将会删除该文件</string>
+    <string name="ok">确定</string>
+    <string name="delete">删除</string>
+    <string name="deleting">正在删除</string>
+    <string name="no_recording_file">暂无任何音频文件</string>
+    <string name="recording_file_list">录音文件列表</string>
+    <string name="recording_paused">录音暂停</string>
+    <string name="record_title">录音</string>
+    <string name="play_title">播放</string>
+    <string name="delete_selected">选中了%s个</string>
+    <string name="duration_timer_format_with_hour" translatable="false"><xliff:g id="format">%02d时%02d分%02d秒</xliff:g></string>
+    <string name="duration_timer_format_without_hour" translatable="false"><xliff:g id="format">%02d分%02d秒</xliff:g></string>
+    <string name="is_recording_can_not_use_play_function">正在录音，不能使用播放功能.</string>
+    <string name="is_playing_can_not_use_record_function">正在播放录音文件，不能使用录音功能.</string>
+    <string name="menu_actionbar_selected_items">已选定<xliff:g id="name">%s</xliff:g>个</string>
+    <string name="menu_multichoice_select_all">全选</string>
+    <string name="menu_multichoice_clear_select">取消全选</string>
+    <string name="recording_notitication">正在录音</string>
+    <string name="pause_record">暂停录音</string>
+    
+    <string name="tv_prompt">提示：录音时按HOME键可以继续录音</string>
+    <string name="sounder_file">录音文件</string>
+    <string name="filename_to_save">文件名:</string>
+    <string name="save_confirm">确定</string>
+    <string name="cancel_save">放弃录音</string>
+    <string name="play_record">播放录音中</string>
+    <string name="cancel_save_toast_display">已经放弃录音</string>
+    <string name="playing_record_toast">正在播放录音</string>
+    <string name="file_name_formater1"><xliff:g id="month">%1$s</xliff:g>月<xliff:g id="day">%2$s</xliff:g>日<xliff:g id="ampm">%3$s</xliff:g><xliff:g id="hours">%4$s</xliff:g>时<xliff:g id="min">%5$s</xliff:g>分</string>
+    <string name="file_name_formater2"><xliff:g id="month">%1$s</xliff:g>月<xliff:g id="day">%2$s</xliff:g>日<xliff:g id="hours">%3$s</xliff:g>时<xliff:g id="min">%4$s</xliff:g>分</string>
+    <string name="am">上午</string>
+    <string name="pm">下午</string>
+    <string name="default_name_saved">已以默认名保存</string>
+    <string name="too_short_to_save">录音时长过短，无法保存</string>
+    <string name="storage_problem_stop_record">存储出现问题，录音意外终止</string>
+    <string name="file_name_special_characters">特殊字符，无法保存</string>
+    <string name="no_recording">无法录制</string>
+    <string name="file_suffix_problem">文件名问题,请重新输入</string>
+    <string name="select_all">全选</string>
+</resources>
