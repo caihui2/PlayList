@@ -52,31 +52,4 @@ public class
          */
         public void onClick(View itemView, View clickedView, int position);
     }
-
-    public void setAdapter(ListAdapter adapter) {
-        super.setAdapter(new WrapperListAdapterImpl(adapter) {
-
-            @Override
-            public View getView(final int position, View view, ViewGroup viewGroup) {
-                final View listView = wrapped.getView(position, view, viewGroup);
-                // add the action listeners
-                if (buttonIds != null && listView != null) {
-                    for (int id : buttonIds) {
-                        View buttonView = listView.findViewById(id);
-                        if (buttonView != null) {
-                            buttonView.findViewById(id).setOnClickListener(new OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    if (listener != null) {
-                                        listener.onClick(listView, view, position);
-                                    }
-                                }
-                            });
-                        }
-                    }
-                }
-                return listView;
-            }
-        });
-    }
 }

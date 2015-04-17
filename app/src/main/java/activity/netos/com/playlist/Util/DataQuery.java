@@ -27,19 +27,11 @@ import activity.notes.com.entity.PlayEntity;
 public class DataQuery extends AsyncQueryHandler {
     private Context mContext;
     private Handler mHandler;
-    private static DataQuery dataQuery;
     public static final int HEADLER_GET_DATA = 100;
-    private DataQuery(Context mContext, Handler mHandler) {
+    public DataQuery(Context mContext, Handler mHandler) {
         super(mContext.getContentResolver());
         this.mHandler = mHandler;
         this.mContext = mContext;
-    }
-
-    public static DataQuery getDataQuery(Context mContext, Handler mHandler) {
-        if (dataQuery == null) {
-            dataQuery = new DataQuery(mContext, mHandler);
-        }
-        return dataQuery;
     }
 
     @Override
@@ -100,7 +92,7 @@ public class DataQuery extends AsyncQueryHandler {
                 MediaStore.Audio.Media.DISPLAY_NAME,
                 MediaStore.Audio.Media.DATE_ADDED,
                 MediaStore.Audio.Media.TITLE};
-        dataQuery.startQuery(0, null, queryUri, projection, null, null, null);
+        startQuery(0, null, queryUri, projection, null, null, null);
     }
 
 }

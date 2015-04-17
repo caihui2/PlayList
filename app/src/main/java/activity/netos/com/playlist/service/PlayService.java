@@ -55,6 +55,9 @@ public class PlayService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         String excuteAction = intent.getStringExtra(PlayListActivity.EXTRA_VALUE);
+        if(excuteAction == null){
+            return 2;
+        }
         switch (excuteAction) {
             case PlayListActivity.ACTION_RUN_PLAY:
                 controlPlayState(intent);
