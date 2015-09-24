@@ -2,7 +2,6 @@ package activity.netos.com.playlist.View;
 
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +10,12 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import activity.netos.com.playlist.R;
+import activity.netos.com.playlist.Util.StringFormat;
 import activity.netos.com.playlist.service.PlayService;
-import activity.notes.com.entity.PlayEntity;
+import activity.notes.com.entity.SongPlayEntity;
 
 /**
  * Created by yangcaihui on 15/4/10.
@@ -25,7 +24,7 @@ public class SildeDataAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater;
     private Context mContext;
-    private List<PlayEntity> playEntityList;
+    private List<SongPlayEntity> songPlayEntityList;
     private ViewHandler viewHandler;
     private OnAdapterViewChangeListener adapterViewChangeListener;
     private int playState = -1;
@@ -38,9 +37,9 @@ public class SildeDataAdapter extends BaseAdapter {
         public void onClicks(View v);
     }
 
-    public SildeDataAdapter(Context mContext, List<PlayEntity> playEntityList) {
+    public SildeDataAdapter(Context mContext, List<SongPlayEntity> songPlayEntityList) {
         this.mContext = mContext;
-        this.playEntityList = playEntityList;
+        this.songPlayEntityList = songPlayEntityList;
         mInflater = LayoutInflater.from(mContext);
     }
 
@@ -61,13 +60,13 @@ public class SildeDataAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return playEntityList.size();
+        return songPlayEntityList.size();
     }
 
 
     @Override
     public Object getItem(int position) {
-        return playEntityList.get(position);
+        return songPlayEntityList.get(position);
     }
 
 
@@ -88,8 +87,8 @@ public class SildeDataAdapter extends BaseAdapter {
         } else {
             viewHandler = (ViewHandler) convertView.getTag();
         }
-        PlayEntity playEntity = (PlayEntity) getItem(position);
-        viewHandler.initData(playEntity);
+        SongPlayEntity songPlayEntity = (SongPlayEntity) getItem(position);
+        viewHandler.initData(songPlayEntity);
         return convertView;
     }
 
@@ -97,7 +96,6 @@ public class SildeDataAdapter extends BaseAdapter {
         // show item
         TextView createName;
         TextView createTime;
-        TextView duration;
         // hidden item
         SeekBar playSeekbar;
         TextView currentTime;
@@ -107,56 +105,32 @@ public class SildeDataAdapter extends BaseAdapter {
         void initView(View convertView) {
             viewHandler.createName = (TextView) convertView.findViewById(R.id.file_create_time);
             viewHandler.createTime = (TextView) convertView.findViewById(R.id.file_create_date);
-            viewHandler.duration = (TextView) convertView.findViewById(R.id.duration);
             viewHandler.playSeekbar = (SeekBar) convertView.findViewById(R.id.play_progress_bar);
             viewHandler.currentTime = (TextView) convertView.findViewById(R.id.current_time);
             viewHandler.tvDuration = (TextView) convertView.findViewById(R.id.tv_duration);
             viewHandler.pauseBt = (ImageButton) convertView.findViewById(R.id.pause_bt);
         }
 
-        void initData(PlayEntity playEntity) {
-            viewHandler.createName.setText(playEntity.getPlayName());
-            viewHandler.createTime.setText(playEntity.getPlayTime());
-            viewHandler.duration.setText(playEntity.getPlayDuration());
-            viewHandler.tvDuration.setText(playEntity.getPlayDuration());
+        void initData(SongPlayEntity songPlayEntity) {
+            viewHandler.createName.setText(songPlayEntity.getPlayName());
+            viewHandler.createTime.setText(songPlayEntity.getPlayArtist());
+            viewHandler.tvDuration.setText(songPlayEntity.getPlayDuration());
             // set SeekBar value
-            viewHandler.playSeekbar.setMax(playEntity.getMaxDuration());
+            viewHandler.playSeekbar.setMax(songPlayEntity.getMaxDuration());
             viewHandler.playSeekbar.setProgress(sekCurPosition);
-            viewHandler.currentTime.setText(durationToString(sekCurPosition));
+            viewHandler.currentTime.setText(StringFormat.durationToString(sekCurPosition));
             updateUI(playState);
             seekBarChange(viewHandler.playSeekbar);
             buttonClick(viewHandler.pauseBt);
         }
 
-        public String durationToString(int duration) {
-            String reVal = "";
-            int i = duration / 1000;
-            int hour = (int) i / (60 * 60);
-            int min = (int) ((i / 60) % 60);
-            int sec = i % 60;
-            if (hour > 9) {
-                reVal = ":";
-            } else {
-                reVal = "0" + hour + ":";
-            }
-            if (min > 9) {
-                reVal += min + ":";
-            } else {
-                reVal += "0" + min + ":";
-            }
-            if (sec > 9) {
-                reVal += sec;
-            } else {
-                reVal += "0" + sec;
-            }
-            return reVal;
-        }
+
 
         private void updateUI(int mState) {
             switch (mState) {
                 case PlayService.DISPLAY_STATE_STOP:
                     viewHandler.playSeekbar.setProgress(0);
-                    viewHandler.currentTime.setText(durationToString(0));
+                    viewHandler.currentTime.setText(StringFormat.durationToString(0));
                     viewHandler.playSeekbar.setEnabled(true);
                     viewHandler.pauseBt.setEnabled(true);
                     viewHandler.pauseBt.setBackgroundResource(R.drawable.play_selector);

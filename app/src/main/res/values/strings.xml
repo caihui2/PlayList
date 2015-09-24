@@ -81,7 +81,7 @@
     <string name="pause_record">暂停录音</string>
     
     <string name="tv_prompt">提示：录音时按HOME键可以继续录音</string>
-    <string name="sounder_file">录音文件</string>
+    <string name="sounder_file">音乐列表</string>
     <string name="filename_to_save">文件名:</string>
     <string name="save_confirm">确定</string>
     <string name="cancel_save">放弃录音</string>

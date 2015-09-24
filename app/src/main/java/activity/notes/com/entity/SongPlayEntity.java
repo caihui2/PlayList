@@ -3,18 +3,18 @@ package activity.notes.com.entity;
 /**
  * Created by yangcaihui on 15/4/10.
  */
-public class PlayEntity {
+public class SongPlayEntity {
 
     private String playName;
-    private String playTime;
+    private String playArtist;
     private String playDuration;
     private String playData;
     private int maxDuration;
 
 
-    public PlayEntity(String playName, String playTime, String playDuration, String playData,int maxDuration) {
+    public SongPlayEntity(String playName, String playArtist, String playDuration, String playData, int maxDuration) {
         this.playName = playName;
-        this.playTime = playTime;
+        this.playArtist = playArtist;
         this.playDuration = playDuration;
         this.playData = playData;
         this.maxDuration = maxDuration;
@@ -37,12 +37,12 @@ public class PlayEntity {
         this.playDuration = playDuration;
     }
 
-    public String getPlayTime() {
-        return playTime;
+    public String getPlayArtist() {
+        return playArtist;
     }
 
-    public void setPlayTime(String playTime) {
-        this.playTime = playTime;
+    public void setPlayArtist(String playArtist) {
+        this.playArtist = playArtist;
     }
 
     public String getPlayData() {

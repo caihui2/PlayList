@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,16 +12,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.SeekBar;
 
 import java.util.List;
 
-import activity.netos.com.playlist.Util.DataQuery;
+import activity.netos.com.playlist.data.DataQuery;
 import activity.netos.com.playlist.View.ActionSlideExpandableListView;
 import activity.netos.com.playlist.View.SildeDataAdapter;
 import activity.netos.com.playlist.View.SlideExpandableListAdapter;
 import activity.netos.com.playlist.service.PlayService;
-import activity.notes.com.entity.PlayEntity;
+import activity.notes.com.entity.SongPlayEntity;
 
 
 public class PlayListActivity extends ActionBarActivity implements AdapterView.OnItemClickListener,  SildeDataAdapter.OnAdapterViewChangeListener{
@@ -53,8 +51,8 @@ public class PlayListActivity extends ActionBarActivity implements AdapterView.O
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case DataQuery.HEADLER_GET_DATA:
-                    List<PlayEntity> playEntityList = (List<PlayEntity>) msg.obj;
-                    sdAdapter = new SildeDataAdapter(PlayListActivity.this, playEntityList);
+                    List<SongPlayEntity> songPlayEntityList = (List<SongPlayEntity>) msg.obj;
+                    sdAdapter = new SildeDataAdapter(PlayListActivity.this, songPlayEntityList);
                     aseListVie.setAdapter(sdAdapter);
                     sdAdapter.setOnAdapterViewChangeListener(PlayListActivity.this);
                     break;
@@ -74,7 +72,6 @@ public class PlayListActivity extends ActionBarActivity implements AdapterView.O
                 int playState = intent.getIntExtra(PlayService.EXTRA_DISPLAY_MODE, -1);
                 sdAdapter.setPlayState(playState);
                 displayState = playState;
-
             }
         }
     };
@@ -133,20 +130,20 @@ public class PlayListActivity extends ActionBarActivity implements AdapterView.O
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         controlView(view);
-        PlayEntity playEntity = (PlayEntity) sdAdapter.getItem((int) id);
+        SongPlayEntity songPlayEntity = (SongPlayEntity) sdAdapter.getItem((int) id);
         if (expAdapter.isAnyItemExpanded()) {
             if (displayState != PlayService.DISPLAY_STATE_STOP) {
                 runStop();
             }
-            runPlay(playEntity);
+            runPlay(songPlayEntity);
         }
         if (!expAdapter.isAnyItemExpanded()) {
             runStop();
         }
     }
 
-    public void runPlay(PlayEntity playEntity) {
-        excuteControlAction(ACTION_RUN_PLAY, EXTRA_PATH, playEntity.getPlayData());
+    public void runPlay(SongPlayEntity songPlayEntity) {
+        excuteControlAction(ACTION_RUN_PLAY, EXTRA_PATH, songPlayEntity.getPlayData());
     }
 
     public void runPause() {

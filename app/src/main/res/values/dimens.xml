@@ -32,7 +32,7 @@
     <dimen name="no_record_file_text_size">12sp</dimen>
     
     <dimen name="file_list_height">140px</dimen>
-    <dimen name="file_create_time_margin_left">24px</dimen>
+    <dimen name="file_create_time_margin_left">40px</dimen>
     <dimen name="file_create_time_padding_buttom">28px</dimen>
     <dimen name="file_create_date_margin_top">4px</dimen>
     <dimen name="file_create_time_text_size">24sp</dimen>
